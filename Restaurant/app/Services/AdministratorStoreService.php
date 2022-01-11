@@ -3,6 +3,8 @@ namespace App\Services;
 
 use App\Models\Administrator;
 use App\Http\Requests\AdminiRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 
 class AdministratorStoreService
@@ -13,7 +15,7 @@ class AdministratorStoreService
 
         $administrator->name = $request->name;
         $administrator->email = $request->email;
-        $administrator->password = $request->password;
+        $administrator->password = Hash::make($request->password);
         $administrator->save();
     }
 }

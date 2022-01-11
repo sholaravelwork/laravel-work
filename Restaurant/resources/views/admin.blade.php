@@ -18,10 +18,9 @@
         <li><a href="{{ route('manage.administrator') }}">管理者情報管理</a></li>
     </div>
 
-    <form action="{{ route('manage.index') }}" method="get" class="back-admin">
-        @csrf
+    <form action="{{ route('logout') }}" method="get" class="back-admin">
 
-        <button>ホーム画面に戻る</button>
+        <button>ログアウト</button>
 
 
     </form>

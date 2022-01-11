@@ -28,22 +28,25 @@
             <th>パスワード</th>
             <th>詳細</th>
             @forelse($administrators as $administrator)
-            <form action="{{ route('administrator.show', $administrator) }}" method="get">
-                <tr>
-                    <td class="admini-td">
-                        {{ $administrator->name }}
-                        <p>ID：{{ $administrator->id }}</p>
-                    </td>
-                    <td class="admini-td">
-                        {{ $administrator->email }}
-                    </td>
-                    <td class="admini-td">
-                        {{ $administrator->password }}
-                    </td>
-                    <td class="admini-td-button"><input type="submit" value="詳細を見る"></td>
-                </tr>
 
-            </form>
+            <tr>
+                <td class="admini-td">
+                    {{ $administrator->name }}
+                    <p>ID：{{ $administrator->id }}</p>
+                </td>
+                <td class="admini-td">
+                    {{ $administrator->email }}
+                </td>
+                <td class="admini-td">
+                    {{ $administrator->password }}
+                </td>
+                <td class="admini-td-button">
+                    <a href="{{ route('administrator.show', $administrator) }}">
+                        <input type="submit" value="詳細を見る">
+                    </a>
+                </td>
+            </tr>
+
             @empty
 
             @endforelse

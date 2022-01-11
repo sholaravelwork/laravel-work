@@ -19,7 +19,6 @@
 
     }) //通信が成功したとき
     .then((res) => {
-    console.log(res);
     document.getElementById("res-text").innerHTML=res[0];
     })
     //通信が失敗したとき

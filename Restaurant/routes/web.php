@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,78 +29,70 @@ Route::get('/drinks',[PostController::class, 'sidebar_drinks'])
 Route::get('/access',[PostController::class, 'sidebar_access'])
 ->name('access');
 
-Route::get('/login',[PostController::class, 'login'])
-->name('login');
-
 Route::get('/admin',[PostController::class, 'admin'])
-->name('admin');
+->name('admin')->middleware('login');
 
 Route::get('/manage-menu',[PostController::class, 'manage_menu'])
-->name('manage.menu');
+->name('manage.menu')->middleware('login');
 
 Route::get('/menuadd',[PostController::class, 'menu_add'])
-->name('menus.add');
+->name('menus.add')->middleware('login');
 
 Route::post('/menus/store',[PostController::class, 'menu_store'])
-->name('menus.store');
+->name('menus.store')->middleware('login');
 
 Route::get('/menus/{menu}', [PostController::class, 'menus_show'])
-    ->name('menus.show');
+    ->name('menus.show')->middleware('login');
 
 Route::get('/menus/{menu}/edit', [PostController::class, 'menus_edit'])
     ->name('menus.edit')
-    ->where('menu', '[0-9]+');
+    ->where('menu', '[0-9]+')->middleware('login');
 
 Route::patch('/menus/{menu}/update', [PostController::class, 'update'])
     ->name('menus.update')
-    ->where('menu', '[0-9]+');
+    ->where('menu', '[0-9]+')->middleware('login');
 
 Route::get('/menus/{menu}/destroy', [PostController::class, 'destroy'])
     ->name('menus.destroy')
-    ->where('menu', '[0-9]+');
+    ->where('menu', '[0-9]+')->middleware('login');
 
 
 Route::get('/manage-reserve',[PostController::class, 'manage_reserve'])
-    ->name('manage.reserve');
+    ->name('manage.reserve')->middleware('login');
 
 // 予約追加画面
-Route::post('/reserve/store',[PostController::class, 'reserve_store'])
-    ->name('reserve.store');
+Route::post('/reserve/store',[ReserveController::class, 'reserve_store'])
+    ->name('reserve.store')->middleware('login');
 
 
-Route::get('/reserveadd',[PostController::class, 'reserve_add']);
-
-Route::get('/administratordd',[PostController::class, 'administratordd']);
-
-Route::get('/reserves/{reservation}', [PostController::class, 'reserve_show'])
-    ->name('reserve.show');
+Route::get('/reserveadd',[ReserveController::class, 'reserve_add'])
+    ->middleware('login');
 
 
-Route::get('/reserves/{reservation}/edit', [PostController::class, 'reserve_edit'])
+Route::get('/reserves/{reservation}', [ReserveController::class, 'reserve_show'])
+    ->name('reserve.show')->middleware('login');
+
+
+Route::get('/reserves/{reservation}/edit', [ReserveController::class, 'reserve_edit'])
     ->name('reserve.edit')
-    ->where('reserve', '[0-9]+');
+    ->where('reserve', '[0-9]+')->middleware('login');
 
 
-Route::patch('/reserves/{reservation}/update', [PostController::class, 'reserveupdate'])
+Route::patch('/reserves/{reservation}/update', [ReserveController::class, 'reserveupdate'])
     ->name('reserve.update')
-    ->where('reserve', '[0-9]+');
+    ->where('reserve', '[0-9]+')->middleware('login');
 
-Route::get('/reserves/{reservation}/destroy', [PostController::class, 'reservedestroy'])
+Route::get('/reserves/{reservation}/destroy', [ReserveController::class, 'reservedestroy'])
     ->name('reserve.destroy')
-    ->where('reserve', '[0-9]+');
+    ->where('reserve', '[0-9]+')->middleware('login');
 
 Route::get('/reserveck',[PostController::class, 'reserveck'])
     ->name('reserveck');
 
+
 Route::get('/manage-administrator',[PostController::class, 'manage_administrator'])
-    ->name('manage.administrator');
+    ->name('manage.administrator')->middleware('login');
 
-
-Route::get('/administratoradd',[PostController::class, 'administratoradd'])
-->name('administrator.add');
-
-Route::post('/administrators/store',[PostController::class, 'administratorstore'])
-->name('administrator.store');
 
 // サインイン
 Route::post('/signin',[PostController::class, 'signin'])
@@ -106,31 +101,45 @@ Route::post('/signin',[PostController::class, 'signin'])
 Route::post('/loginmiss',[PostController::class, 'loginmiss']);
 
 // ユーザーがサイドメニューの予約ボタンを押した時
-Route::get('/userview/reserve',[PostController::class, 'userview_reserve'])
+Route::get('/userview/reserve',[UserController::class, 'userview_reserve'])
 ->name('/userview/reserve');
 
 // ユーザーが予約情報を入れて予約確認ボタンを押した時
 // ユーザーが入力した情報を画面に反映する。
-Route::post('/userview/confirm',[PostController::class, 'userview_reserve_confirm'])
+Route::post('/userview/confirm',[UserController::class, 'userview_reserve_confirm'])
 ->name('reserve.confirm');
 
-Route::post('/userview/store',[PostController::class, 'user_store'])
+Route::post('/userview/store',[UserController::class, 'user_store'])
 ->name('user.store');
 
-Route::post('/userview/complete',[PostController::class, 'user_complete'])
+Route::post('/userview/complete',[UserController::class, 'user_complete'])
 ->name('user.complete');
 
-Route::get('/administrator/{administrator}', [PostController::class, 'administrator_show'])
-    ->name('administrator.show');
 
-Route::get('/administrator/{administrator}/edit', [PostController::class, 'administrator_edit'])
+Route::get('/administratoradd',[AdminController::class, 'administratoradd'])
+->name('administrator.add')->middleware('login');
+
+Route::post('/administrators/store',[AdminController::class, 'administratorstore'])
+->name('administrator.store')->middleware('login');
+
+Route::get('/administrator/{administrator}', [AdminController::class, 'administrator_show'])
+    ->name('administrator.show')->middleware('login');
+
+Route::get('/administrator/{administrator}/edit', [AdminController::class, 'administrator_edit'])
     ->name('administrator.edit')
-    ->where('reserve', '[0-9]+');
+    ->where('reserve', '[0-9]+')->middleware('login');
 
-Route::patch('/administrator/{administrator}/update', [PostController::class, 'administrator_update'])
+Route::patch('/administrator/{administrator}/update', [AdminController::class, 'administrator_update'])
     ->name('administrator.update')
-    ->where('administrator', '[0-9]+');
+    ->where('administrator', '[0-9]+')->middleware('login');
 
-Route::get('/administrator/{administrator}/destroy', [PostController::class, 'administrator_destroy'])
+Route::get('/administrator/{administrator}/destroy', [AdminController::class, 'administrator_destroy'])
     ->name('administrator.destroy')
-    ->where('administrator', '[0-9]+');
+    ->where('administrator', '[0-9]+')->middleware('login');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/logout', [PostController::class, 'logout'])
+    ->name('logout');
