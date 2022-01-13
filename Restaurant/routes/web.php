@@ -30,73 +30,72 @@ Route::get('/access',[PostController::class, 'sidebar_access'])
 ->name('access');
 
 Route::get('/admin',[PostController::class, 'admin'])
-->name('admin')->middleware('login');
+->name('admin');
 
 Route::get('/manage-menu',[PostController::class, 'manage_menu'])
-->name('manage.menu')->middleware('login');
+->name('manage.menu');
 
 Route::get('/menuadd',[PostController::class, 'menu_add'])
-->name('menus.add')->middleware('login');
+->name('menus.add');
 
 Route::post('/menus/store',[PostController::class, 'menu_store'])
-->name('menus.store')->middleware('login');
+->name('menus.store');
 
 Route::get('/menus/{menu}', [PostController::class, 'menus_show'])
-    ->name('menus.show')->middleware('login');
+    ->name('menus.show');
 
 Route::get('/menus/{menu}/edit', [PostController::class, 'menus_edit'])
     ->name('menus.edit')
-    ->where('menu', '[0-9]+')->middleware('login');
+    ->where('menu', '[0-9]+');
 
 Route::patch('/menus/{menu}/update', [PostController::class, 'update'])
     ->name('menus.update')
-    ->where('menu', '[0-9]+')->middleware('login');
+    ->where('menu', '[0-9]+');
 
 Route::get('/menus/{menu}/destroy', [PostController::class, 'destroy'])
     ->name('menus.destroy')
-    ->where('menu', '[0-9]+')->middleware('login');
+    ->where('menu', '[0-9]+');
 
 
 Route::get('/manage-reserve',[PostController::class, 'manage_reserve'])
-    ->name('manage.reserve')->middleware('login');
+    ->name('manage.reserve');
 
 // 予約追加画面
 Route::post('/reserve/store',[ReserveController::class, 'reserve_store'])
-    ->name('reserve.store')->middleware('login');
+    ->name('reserve.store');
 
 
-Route::get('/reserveadd',[ReserveController::class, 'reserve_add'])
-    ->middleware('login');
+Route::get('/reserveadd',[ReserveController::class, 'reserve_add']);
 
 
 Route::get('/reserves/{reservation}', [ReserveController::class, 'reserve_show'])
-    ->name('reserve.show')->middleware('login');
+    ->name('reserve.show');
 
 
 Route::get('/reserves/{reservation}/edit', [ReserveController::class, 'reserve_edit'])
     ->name('reserve.edit')
-    ->where('reserve', '[0-9]+')->middleware('login');
+    ->where('reserve', '[0-9]+');
 
 
 Route::patch('/reserves/{reservation}/update', [ReserveController::class, 'reserveupdate'])
     ->name('reserve.update')
-    ->where('reserve', '[0-9]+')->middleware('login');
+    ->where('reserve', '[0-9]+');
 
 Route::get('/reserves/{reservation}/destroy', [ReserveController::class, 'reservedestroy'])
     ->name('reserve.destroy')
-    ->where('reserve', '[0-9]+')->middleware('login');
+    ->where('reserve', '[0-9]+');
 
 Route::get('/reserveck',[PostController::class, 'reserveck'])
     ->name('reserveck');
 
 
 Route::get('/manage-administrator',[PostController::class, 'manage_administrator'])
-    ->name('manage.administrator')->middleware('login');
+    ->name('manage.administrator');
 
 
 // サインイン
 Route::post('/signin',[PostController::class, 'signin'])
-->name('signin');
+->name('signin')->middleware('login');
 
 Route::post('/loginmiss',[PostController::class, 'loginmiss']);
 
@@ -123,19 +122,19 @@ Route::post('/administrators/store',[AdminController::class, 'administratorstore
 ->name('administrator.store');
 
 Route::get('/administrator/{administrator}', [AdminController::class, 'administrator_show'])
-    ->name('administrator.show')->middleware('login');
+    ->name('administrator.show');
 
 Route::get('/administrator/{administrator}/edit', [AdminController::class, 'administrator_edit'])
     ->name('administrator.edit')
-    ->where('reserve', '[0-9]+')->middleware('login');
+    ->where('reserve', '[0-9]+');
 
 Route::patch('/administrator/{administrator}/update', [AdminController::class, 'administrator_update'])
     ->name('administrator.update')
-    ->where('administrator', '[0-9]+')->middleware('login');
+    ->where('administrator', '[0-9]+');
 
 Route::get('/administrator/{administrator}/destroy', [AdminController::class, 'administrator_destroy'])
     ->name('administrator.destroy')
-    ->where('administrator', '[0-9]+')->middleware('login');
+    ->where('administrator', '[0-9]+');
 
 Auth::routes();
 
