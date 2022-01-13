@@ -23,9 +23,15 @@ public function administratoradd()
 public function administratorstore(AdminiRequest $request)
 {
 
-    $administrator = new Administrator();
-    $service = new AdministratorStoreService();
-    $service->store($request);
+    // $administrator = new Administrator();
+    // $service = new AdministratorStoreService();
+    // $service->store($request);
+    $administrator =  new Administrator();
+
+    $administrator->name = $request->name;
+    $administrator->email = $request->email;
+    $administrator->password = Hash::make($request->password);
+    $administrator->save();
 
 
     return redirect()->route('manage.administrator')
