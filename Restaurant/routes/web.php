@@ -95,8 +95,8 @@ Route::get('/manage-administrator',[PostController::class, 'manage_administrator
 
 // サインイン
 Route::post('/signin',[PostController::class, 'signin'])
-->name('signin')->middleware('login');
-
+->name('signin');
+//->middleware('login')
 Route::post('/loginmiss',[PostController::class, 'loginmiss']);
 
 // ユーザーがサイドメニューの予約ボタンを押した時
