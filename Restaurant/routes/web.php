@@ -117,10 +117,10 @@ Route::post('/userview/complete',[UserController::class, 'user_complete'])
 
 
 Route::get('/administratoradd',[AdminController::class, 'administratoradd'])
-->name('administrator.add')->middleware('login');
+->name('administrator.add');
 
 Route::post('/administrators/store',[AdminController::class, 'administratorstore'])
-->name('administrator.store')->middleware('login');
+->name('administrator.store');
 
 Route::get('/administrator/{administrator}', [AdminController::class, 'administrator_show'])
     ->name('administrator.show')->middleware('login');
