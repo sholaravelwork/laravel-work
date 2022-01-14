@@ -53,13 +53,13 @@ class MenuStoreService
 
         date_default_timezone_set('Asia/Tokyo');
 
-            $originalName = $file->getClientOriginalName();
-            $micro = explode(" ", microtime());
-            $fileTail = date("Ymd_His", $micro[1]) . '_' . (explode('.', $micro[0])[1]);
+            // $originalName = $file->getClientOriginalName();
+            // $micro = explode(" ", microtime());
+            // $fileTail = date("Ymd_His", $micro[1]) . '_' . (explode('.', $micro[0])[1]);
 
-            $fileName =  $fileTail. '.' . $originalName;
+            // $fileName =  $fileTail. '.' . $originalName;
             //$file->storeAs('images', $fileName, ['disk' => 'public']);
-            $menu->img = $request->file('img');
+            $menu->img =  $path;
 
 
         $menu->name = $request->name;
