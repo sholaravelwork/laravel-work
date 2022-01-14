@@ -59,7 +59,7 @@ class MenuStoreService
 
             $fileName =  $fileTail. '.' . $originalName;
             //$file->storeAs('images', $fileName, ['disk' => 'public']);
-            $menu->img = $fileName;
+            $menu->img = $request->file('img');
 
 
         $menu->name = $request->name;
