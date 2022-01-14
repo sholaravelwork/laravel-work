@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -141,4 +142,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/logout', [PostController::class, 'logout'])
-    ->name('logout');
+	->name('logout');
+
+Route::get('/upload/image',[ImageController::class, 'input']);
+
+Route::post('/upload/image/upload',[ImageController::class, 'upload']);
+
+Route::get('/upload/image/output',[ImageController::class, 'output']);
+
+
