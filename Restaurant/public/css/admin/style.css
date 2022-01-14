@@ -1,0 +1,300 @@
+h1 {
+    color: blue;
+    text-align: center;
+    margin: 50px auto;
+    border-top: 3px solid #333;
+    border-bottom: 3px solid #333;
+    padding: 50px 0;
+}
+
+.menu {
+    text-align: center;
+    font-size: 30px;
+}
+
+li {
+    margin: 10px 0;
+}
+
+textarea {
+    width: 400px;
+    height: 200px;
+}
+
+#footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #8c3131;
+    color: #fff;
+    text-align: center;
+}
+
+footer p {
+    padding-top: 40px;
+    color: #fff;
+}
+
+.login {
+    width: 50%;
+    margin: 100px auto;
+    align-items: center;
+}
+
+.login input,
+password {
+    padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login button {
+    margin-top: 10px;
+    padding: 4px 8px;
+    font-size: 16px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.menu-list button {
+    margin: 40px auto;
+}
+
+.menu-list li {
+    float: left;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.delete-btn {
+    border: none;
+    background: transparent;
+    font-weight: normal;
+    color: #15c;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.back {
+    margin-left: 10px;
+}
+
+.add_button {
+    text-align: center;
+}
+
+.menu_img {
+    width: 150px;
+    height: 150px;
+}
+
+.menu-list table {
+    margin: 0 auto;
+    border: solid 1px black;
+}
+
+.menu-list td {
+    width: 33%;
+    padding: 0 2%;
+}
+
+.td_price {
+    text-align: center;
+}
+
+.td_submit {
+    margin-left: 20px;
+}
+
+.show_menu {
+    margin: 0 auto;
+}
+
+.back-admin {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.back-admin button {
+    padding: 5px 50px;
+}
+
+.reservation .container {
+    margin-top: 10px;
+    display: flex;
+}
+
+.reservation .callender {
+    float: left;
+    margin-left: 5%;
+}
+
+.reservation .reserve-process {
+    float: left;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.reservation table {
+    border-collapse: collapse;
+    border: 2px solid #eee;
+    width: 100%;
+    height: 100%;
+}
+
+.reservation thead,
+.reservation tfoot {
+    background: #eee;
+}
+
+.reservation th,
+.reservation td {
+    padding: 8px;
+    text-align: center;
+}
+
+.reservation tbody td:first-child {
+    color: red;
+}
+
+.reservation tbody td:last-child {
+    color: blue;
+}
+
+.reservation tfoot {
+    font-weight: bold;
+}
+
+.reservation td.disabled {
+    opacity: 0.3;
+}
+
+.reservation td.today {
+    font-weight: bold;
+}
+
+#month_prev,
+#month_next,
+#today {
+    cursor: pointer;
+    user-select: none;
+}
+
+.click_able {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.click_disable {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.reserve_input {
+    width: 40%;
+    height: 10%;
+}
+
+.reserve_people {
+    position: relative;
+    width: 100px;
+}
+
+.reserve_people select {
+    width: 200px;
+    height: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.reserve_people:after {
+    content: "";
+    position: absolute;
+    left: 170px;
+    top: 12px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #999;
+    border-left: 2px solid #999;
+    transform: translateY(-50%) rotate(-135deg);
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.reserve_day {
+    margin: 15px 0;
+}
+
+.input_button {
+    width: 200px;
+    height: 40px;
+    margin-top: 5%;
+}
+
+.form-button {
+    margin: 10% auto;
+    width: 30%;
+}
+
+.form-group {
+    width: 350px;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.menu_genre {
+    position: relative;
+    width: 100px;
+}
+
+.menu_genre select {
+    width: 200px;
+    height: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.menu_genre:after {
+    content: "";
+    position: absolute;
+    left: 170px;
+    top: 12px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #999;
+    border-left: 2px solid #999;
+    transform: translateY(-50%) rotate(-135deg);
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.form-group font {
+    float: left;
+}
+
+.admini-td {
+    text-align: center;
+}
+
+.admini-td-button input {
+    margin-right: 50px;
+}

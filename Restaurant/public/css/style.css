@@ -1,0 +1,824 @@
+header {
+    display: none;
+}
+
+.sp-menu {
+    display: none;
+}
+
+.overlay {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    width: 100%;
+    display: inline-block;
+}
+
+h1 {
+    color: red;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.wrapper {
+    display: flex;
+    overflow: hidden;
+    min-height: 100%;
+}
+
+.main {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.click_able {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.click_disable {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.carousel {
+    width: 100%;
+}
+
+.heading_reserve {
+    height: auto;
+    width: 100%;
+    margin: 20px auto;
+    padding: 10px 0;
+    background-color: green;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.heading_menu {
+    height: auto;
+    width: 100%;
+    padding: 10px 0;
+    background-color: green;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.heading_store {
+    height: auto;
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 10px 0;
+    background-color: green;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.heading_cooking {
+    height: auto;
+    width: 100%;
+    margin: 30px 0;
+    padding: 10px 0;
+    background-color: green;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.main .container {
+    position: relative;
+}
+
+.main .fv-content {
+    overflow: hidden;
+}
+
+.main .fv-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+}
+
+.main .fv-content li {
+    height: 500px;
+    min-width: 100%;
+}
+
+.main .fv-content img {
+    vertical-align: bottom;
+    object-fit: cover;
+    width: 100%;
+    height: 500px;
+}
+
+.main #prev,
+.main #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 30px;
+    padding: 0px 8px 4px;
+    cursor: pointer;
+}
+
+.main #prev:hover,
+.main #next:hover {
+    opacity: 0.8;
+}
+
+.main #prev {
+    left: 0;
+}
+.main #next {
+    right: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.fv-content ul {
+    transition: transform.3s;
+}
+
+.sidebar {
+    background-color: brown;
+    width: 22%;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+.sidebar .container {
+    margin-top: 50px;
+    position: fixed;
+}
+
+.sidebar .restaurant-logo {
+    width: 100px;
+    height: 100px;
+    list-style: 64px;
+}
+
+.sidebar li {
+    list-style: none;
+    padding: 5% 0;
+}
+
+.sidebar li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebar .btn_reserve {
+    background-color: #849b84;
+    border-radius: 10%;
+    color: #fff;
+    font-weight: bold;
+    width: auto;
+    padding: 5%;
+}
+
+.sidebar .btn_adminlogin {
+    background-color: #ff9d00;
+    border-radius: 10%;
+    color: #fff;
+    font-weight: bold;
+    width: auto;
+    padding: 5%;
+}
+
+.sidebar .call-area {
+    width: auto;
+    height: auto;
+    background-color: #c6959a;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.call-area .text-reserve {
+    font-size: 12px;
+    padding-top: 3%;
+}
+
+.call-area .text-call {
+    font-size: 20px;
+}
+
+.call-area .text-businesshours {
+    padding: 5px 0;
+    font-size: 12px;
+}
+
+.call-area .text-businesshours a {
+    color: #fff;
+}
+
+.sns_icon-area {
+    width: 100%;
+}
+
+.sns_icon-area ul {
+    display: flex;
+    justify-content: center;
+}
+
+.sns_icon-area img {
+    width: 50%;
+}
+
+nav {
+    margin-top: 10px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+nav button {
+    border: none;
+    width: 10px;
+    height: 10px;
+    background-color: ddd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+nav button + button {
+    margin-left: 10px;
+}
+
+nav p {
+    font-size: 15px;
+}
+
+.current {
+    background-color: #999;
+}
+
+.reserve_input {
+    width: 40%;
+    height: 10%;
+}
+
+.reserve p {
+    font-size: 24px;
+}
+
+.reserve-td {
+    margin-left: 23px;
+}
+
+.reserve_people {
+    position: relative;
+    width: 100px;
+}
+
+.reserve_day {
+    position: relative;
+    width: 100px;
+}
+
+.reserve_people select {
+    width: 240px;
+    height: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.reserve_people:after {
+    content: "";
+    position: absolute;
+    left: 215px;
+    top: 22px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #999;
+    border-left: 2px solid #999;
+    transform: translateY(-50%) rotate(-135deg);
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.reserve_day {
+    margin: 15px 0;
+}
+
+.input_button {
+    width: 200px;
+    height: 40px;
+    margin-top: 5%;
+}
+
+.reserve-process p {
+    font-size: 20px;
+    margin-top: 5%;
+}
+
+.reserve-process input {
+    width: 240px;
+    border: none;
+    outline: none;
+}
+
+.menu {
+    display: flex;
+    width: 70vw;
+    margin-left: 7%;
+}
+
+.menu-list {
+    margin-left: 55px;
+}
+
+.osusumemenu-list {
+    margin-left: 55px;
+    margin-top: 50px;
+}
+
+.card {
+    width: 30%;
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    float: left;
+    height: 100%;
+    background-color: #f5f5f5;
+}
+
+.card li {
+    list-style: none;
+}
+
+.card .menu-des {
+    padding-bottom: 5px;
+    background-color: #f5f5f5;
+}
+
+.card .pasutamenu-des {
+    height: 140px;
+    padding-bottom: 5px;
+    background-color: #f5f5f5;
+}
+
+.card .coursemenu-des {
+    height: 520px;
+    padding-bottom: 5px;
+    background-color: #f5f5f5;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin: 2% 2%;
+}
+
+.card .menu_price {
+    font-size: 14px;
+    float: right;
+    color: red;
+    margin: 2% 0;
+    text-align: right;
+}
+
+.card p {
+    font-size: 10px;
+    margin-top: 5%;
+    width: 90%;
+    padding: 2% 5%;
+}
+
+.info-title {
+    margin: 5% 0 0 2%;
+    font-size: 13px;
+}
+
+.info-table {
+    margin: 2% 0 4% 2%;
+}
+
+.info-table .td-important {
+    padding: 1% 7% 1% 1%;
+    width: 18%;
+    background-color: #f5f5f5;
+}
+
+.info-table .td-explation {
+    padding-left: 3%;
+    width: 75vw;
+}
+
+footer {
+    background-color: #8c3131;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    padding: 1% 0;
+}
+
+footer p {
+    padding-top: 10px;
+}
+
+div.ui-datepicker {
+    font-size: 1.5rem;
+}
+
+#formday {
+    font-size: 24px;
+}
+
+.form-group {
+    width: 350px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.form-group input {
+    width: 400px;
+    height: 30px;
+    text-align: left;
+}
+
+.reserve-user label {
+    text-align: right;
+}
+
+.reserve-user font {
+    float: left;
+}
+
+.reserve-user .error {
+    color: red;
+}
+.resere-ck-btn {
+    width: 50px;
+}
+
+.reserve_select select {
+    width: 240px;
+    height: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.reserve_select:after {
+    content: "";
+    position: absolute;
+    left: 215px;
+    top: 45px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #999;
+    border-left: 2px solid #999;
+    transform: translateY(-50%) rotate(-135deg);
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.reserve_select {
+    position: relative;
+    width: 100px;
+}
+
+.reserve_people select {
+    font-size: 20px;
+}
+
+.reserve-form-button input {
+    width: 20%;
+    padding: 1% 0;
+    margin-bottom: 30px;
+}
+
+.osusume-menu {
+    margin-left: 30px;
+}
+
+.pc-hide {
+    display: block;
+}
+
+.sp-hide {
+    display: none;
+}
+
+.access-img {
+    width: 600px;
+    height: 600px;
+}
+
+.reserve-complete {
+    margin: 60px 0;
+}
+
+.reserve-complete p {
+    margin: 30px 0;
+}
+
+.reserve-complete a {
+    color: blue;
+}
+
+@media screen and (max-width: 480px) {
+    .sp-menu {
+        display: block;
+    }
+    .overlay {
+        display: block;
+    }
+    /* 480px以下に適用されるCSS（スマホ用） */
+    header {
+        display: flex;
+        padding: 0 16px;
+        background-color: #8c3131;
+    }
+
+    header .restaurant-logo {
+        width: 65px;
+        height: 65px;
+        line-height: 64px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 64px;
+    }
+
+    .restaurant-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .sp-menu {
+        margin-left: auto;
+    }
+
+    .sp-menu #open {
+        font-size: 32px;
+        line-height: 64px;
+        cursor: pointer;
+    }
+
+    .sp-menu #open.hide {
+        display: none;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .overlay {
+        position: fixed !important;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: #8c3131;
+        text-align: center;
+        padding: 64px;
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.6s;
+        height: 1000px;
+    }
+
+    .overlay .btn_reserve {
+        padding: 5px;
+    }
+
+    .overlay.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .overlay #close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 32px;
+        cursor: pointer;
+    }
+
+    .overlay ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .overlay li {
+        margin-top: 24px;
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .overlay.show li {
+        opacity: 1;
+        transform: none;
+    }
+
+    .overlay.show li:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .overlay.show li:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .overlay.show li:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    .overlay.show li:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+
+    .overlay.show li:nth-child(5) {
+        transition-delay: 0.5s;
+    }
+
+    .overlay.show li:nth-child(6) {
+        transition-delay: 0.6s;
+    }
+
+    .carousel button {
+        display: none;
+    }
+
+    .osusume-menu {
+        margin-left: 0px;
+        padding-right: 8px;
+    }
+
+    .card {
+        width: 100%;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        height: 100%;
+        background-color: #f5f5f5;
+    }
+
+    .card li {
+        list-style: none;
+    }
+
+    .card .menu-des {
+        padding-bottom: 5px;
+        background-color: #f5f5f5;
+    }
+
+    .card .pasutamenu-des {
+        height: 140px;
+        padding-bottom: 5px;
+        background-color: #f5f5f5;
+    }
+
+    .card .coursemenu-des {
+        height: 520px;
+        padding-bottom: 5px;
+        background-color: #f5f5f5;
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+        vertical-align: bottom;
+    }
+
+    .card h2 {
+        font-size: 20px;
+        margin: 2% 2%;
+    }
+
+    .card .menu_price {
+        font-size: 14px;
+        float: right;
+        color: red;
+        margin: 2% 0;
+        text-align: right;
+    }
+
+    .card p {
+        font-size: 10px;
+        margin-top: 5%;
+        width: 90%;
+        padding: 2% 5%;
+    }
+
+    .sp-hide {
+        display: block;
+    }
+    .pc-hide {
+        display: none;
+    }
+
+    /* Datepicker のフォントサイズを小さくする */
+    div.ui-datepicker {
+        font-size: 80%;
+    }
+
+    #dummy {
+        height: 10px;
+    }
+
+    .reserve-td p {
+        font-size: 12px;
+    }
+
+    .reserve-td input {
+        width: 100px;
+    }
+
+    .reserve-td ::placeholder {
+        font-size: 10px;
+    }
+
+    .reserve-td select {
+        width: 100px;
+        font-size: 10px;
+    }
+
+    #formday {
+        font-size: 15px;
+    }
+
+    .info-table {
+        margin: 2% 0 4% 2%;
+    }
+
+    .info-table .td-important {
+        padding-left: 20px;
+        width: 30%;
+        font-size: 12px;
+        background-color: #f5f5f5;
+    }
+
+    .info-table .td-explation {
+        padding-left: 3%;
+        font-size: 12px;
+        width: 70%;
+    }
+
+    .menu-list {
+        margin-left: 0px;
+        padding-right: 8px;
+    }
+
+    .access-img {
+        height: 50%;
+        width: 95%;
+    }
+    .resere-ck-btn {
+        display: none;
+    }
+
+    .form-group input {
+        width: 70%;
+        text-align: center;
+    }
+
+    .reserve-form-button input {
+        text-align: center;
+        width: 100px;
+    }
+}
