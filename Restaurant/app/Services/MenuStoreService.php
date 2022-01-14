@@ -13,7 +13,7 @@ class MenuStoreService
     public function store(PostRequest $request)
     {
         $menu =  new Menu();
-        //$file = $request->file('img');
+        $file = $request->file('img');
 
         // $this->validate($request->file('img'), [
         //     'file' => [
