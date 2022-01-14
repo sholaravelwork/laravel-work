@@ -23,7 +23,7 @@
                     <ul>
                         <li>
                             <div>
-                                <img src="{{ url('uploads/images/'.$menu->img)}}" alt="">
+                                <img src="{{ $menu->img }}" alt="">
                                 @if( $data === 'パスタ')
                                 <div class="pasutamenu-des">
                                     <h2> {{ $menu->name }}</h2>
