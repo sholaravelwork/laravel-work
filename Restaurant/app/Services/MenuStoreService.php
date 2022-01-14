@@ -58,7 +58,7 @@ class MenuStoreService
             $fileTail = date("Ymd_His", $micro[1]) . '_' . (explode('.', $micro[0])[1]);
 
             $fileName =  $fileTail. '.' . $originalName;
-            $file->storeAs('images', $fileName, ['disk' => 'public']);
+            //$file->storeAs('images', $fileName, ['disk' => 'public']);
             $menu->img = $fileName;
 
 
