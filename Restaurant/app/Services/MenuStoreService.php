@@ -7,7 +7,7 @@ use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class MenuStoreService extends Controller
+class MenuStoreService
 {
     public function store(PostRequest $request)
     {
