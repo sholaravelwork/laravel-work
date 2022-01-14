@@ -29,7 +29,7 @@
                         {{ $menu->name }}
                         <p>ID：{{ $menu->id }}</p>
                     </td>
-                    <td><img src="{{ url('uploads/images/'.$menu->img) }}" class="menu_img"></td>
+                    <td><img src="{{ Storage::disk('s3')->url("task/{$menu->img}.jpg") }}"></td>
                     <td class="td_price"> {{ $menu->price }}円</td>
                     <td> <input type="submit" value="詳細を見る"></td>
                 </tr>
