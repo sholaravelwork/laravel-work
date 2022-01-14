@@ -2,32 +2,36 @@
 namespace App\Services;
 
 use App\Models\Menu;
+use App\Http\Controllers;
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Image;
 
 class MenuStoreService
 {
     public function store(PostRequest $request)
     {
         $menu =  new Menu();
-        //$file = $request->file('img');
+        $file = $request->file('img');
 
-        $this->validate($request->file('img'), [
-            'file' => [
-                // 必須
-                'required',
-                // アップロードされたファイルであること
-                'file',
-                // 画像ファイルであること
-                'image',
-                // MIMEタイプを指定
-                'mimes:jpeg,png',
-            ]
-        ]);
+        // $this->validate($request->file('img'), [
+        //     'file' => [
+        //         // 必須
+        //         'required',
+        //         // アップロードされたファイルであること
+        //         'file',
+        //         // 画像ファイルであること
+        //         'image',
+        //         // MIMEタイプを指定
+        //         'mimes:jpeg,png',
+        //     ]
+        // ]);
 
-        if ($request->file('file')->isValid([])) {
+        if ($request->file('img')->isValid([])) {
             //バリデーションを正常に通過した時の処理
             //S3へのファイルアップロード処理の時の情報を変数$upload_infoに格納する
-            $upload_info = Storage::disk('s3')->putFile('/test', $request->file('file'), 'public');
+            $upload_info = Storage::disk('s3')->putFile('/test', $request->file('img'), 'public');
             //S3へのファイルアップロード処理の時の情報が格納された変数$upload_infoを用いてアップロードされた画像へのリンクURLを変数$pathに格納する
             $path = Storage::disk('s3')->url($upload_info);
             //現在ログイン中のユーザIDを変数$user_idに格納する
@@ -49,13 +53,13 @@ class MenuStoreService
 
         date_default_timezone_set('Asia/Tokyo');
 
-            $originalName = $file->getClientOriginalName();
-            $micro = explode(" ", microtime());
-            $fileTail = date("Ymd_His", $micro[1]) . '_' . (explode('.', $micro[0])[1]);
+            // $originalName = $file->getClientOriginalName();
+            // $micro = explode(" ", microtime());
+            // $fileTail = date("Ymd_His", $micro[1]) . '_' . (explode('.', $micro[0])[1]);
 
-            $fileName =  $fileTail. '.' . $originalName;
-            $file->storeAs('images', $fileName, ['disk' => 'public']);
-            $menu->img = $fileName;
+            // $fileName =  $fileTail. '.' . $originalName;
+            //$file->storeAs('images', $fileName, ['disk' => 'public']);
+            $menu->img =  $path;
 
 
         $menu->name = $request->name;
