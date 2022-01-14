@@ -14,18 +14,18 @@ class MenuStoreService
         $menu =  new Menu();
         //$file = $request->file('img');
 
-        $this->validate($request->file('img'), [
-            'file' => [
-                // 必須
-                'required',
-                // アップロードされたファイルであること
-                'file',
-                // 画像ファイルであること
-                'image',
-                // MIMEタイプを指定
-                'mimes:jpeg,png',
-            ]
-        ]);
+        // $this->validate($request->file('img'), [
+        //     'file' => [
+        //         // 必須
+        //         'required',
+        //         // アップロードされたファイルであること
+        //         'file',
+        //         // 画像ファイルであること
+        //         'image',
+        //         // MIMEタイプを指定
+        //         'mimes:jpeg,png',
+        //     ]
+        // ]);
 
         if ($request->file('file')->isValid([])) {
             //バリデーションを正常に通過した時の処理
