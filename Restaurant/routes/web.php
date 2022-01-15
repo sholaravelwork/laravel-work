@@ -96,8 +96,7 @@ Route::get('/manage-administrator',[PostController::class, 'manage_administrator
 
 // サインイン
 Route::post('/signin',[PostController::class, 'signin'])
-->name('signin');
-//->middleware('login')
+->name('signin')->middleware('login');
 Route::post('/loginmiss',[PostController::class, 'loginmiss']);
 
 // ユーザーがサイドメニューの予約ボタンを押した時
@@ -117,13 +116,13 @@ Route::post('/userview/complete',[UserController::class, 'user_complete'])
 
 
 Route::get('/administratoradd',[AdminController::class, 'administratoradd'])
-->name('administrator.add');
+->name('administrator.add')->middleware('login');
 
 Route::post('/administrators/store',[AdminController::class, 'administratorstore'])
-->name('administrator.store');
+->name('administrator.store')->middleware('login');
 
 Route::get('/administrator/{administrator}', [AdminController::class, 'administrator_show'])
-    ->name('administrator.show');
+    ->name('administrator.show')->middleware('login');
 
 Route::get('/administrator/{administrator}/edit', [AdminController::class, 'administrator_edit'])
     ->name('administrator.edit')
