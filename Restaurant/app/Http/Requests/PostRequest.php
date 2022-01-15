@@ -26,10 +26,9 @@ class Postrequest extends FormRequest
         return [
             'name' => 'required|min:2',
             'expla' => 'required',
-            'img' => 'required',
             'price' => 'required | integer',
             'genre' => 'required',
-            'file' => [
+            'img' => [
                 // 必須
                 'required',
                 // アップロードされたファイルであること
@@ -37,7 +36,7 @@ class Postrequest extends FormRequest
                 // 画像ファイルであること
                 'image',
                 // MIMEタイプを指定
-                'mimes:jpeg,png',
+                'mimes:jpeg,jpg,png',
             ]
         ];
     }
