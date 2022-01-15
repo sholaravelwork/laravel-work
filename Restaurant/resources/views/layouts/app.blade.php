@@ -52,7 +52,7 @@
 
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('登録') }}</a>
+                            <a class="nav-link" href="">{{ __('') }}</a>
                         </li>
                         @endif
                         @else
