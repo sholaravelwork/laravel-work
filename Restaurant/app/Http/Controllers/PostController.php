@@ -85,6 +85,20 @@ class PostController extends Controller
      // メニュー追加後、メニュー一覧画面に遷移
     public function menu_store(PostRequest $request)
     {
+        $file = $request->file('img');
+
+        $this->validate($file, [
+            'file' => [
+                // 必須
+                'required',
+                // アップロードされたファイルであること
+                'file',
+                // 画像ファイルであること
+                'image',
+                // MIMEタイプを指定
+                'mimes:jpeg,png',
+            ]
+        ]);
 
          $service = new MenuStoreService();
          $service->store($request);
