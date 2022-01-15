@@ -190,11 +190,6 @@
 
                     </tr>
                     <tr>
-                        <td class="td-important">定休日</td>
-                        <td class="td-explation">日曜日</td>
-
-                    </tr>
-                    <tr>
                         <td class="td-important">総席数</td>
                         <td class="td-explation">25席</td>
 
