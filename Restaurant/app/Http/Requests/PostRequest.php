@@ -29,6 +29,16 @@ class Postrequest extends FormRequest
             'img' => 'required',
             'price' => 'required | integer',
             'genre' => 'required',
+            'file' => [
+                // 必須
+                'required',
+                // アップロードされたファイルであること
+                'file',
+                // 画像ファイルであること
+                'image',
+                // MIMEタイプを指定
+                'mimes:jpeg,png',
+            ]
         ];
     }
 
