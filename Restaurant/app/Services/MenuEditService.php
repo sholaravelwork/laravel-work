@@ -12,20 +12,6 @@ class MenuEditService
     {
         $file = $request->file('img');
 
-        // // 画像保存処理
-        // if (!is_null($file)) {
-
-        //     date_default_timezone_set('Asia/Tokyo');
-
-        //     $originalName = $file->getClientOriginalName();
-        //     $micro = explode(" ", microtime());
-        //     $fileTail = date("Ymd_His", $micro[1]) . '_' . (explode('.', $micro[0])[1]);
-
-        //     $fileName =  $fileTail. '.' . $originalName;
-        //     $file->storeAs('images', $fileName, ['disk' => 'public']);
-        //     $menu->img = $fileName;
-        // }
-
         if ($request->file('img')->isValid([])) {
             //バリデーションを正常に通過した時の処理
             //S3へのファイルアップロード処理の時の情報を変数$upload_infoに格納する

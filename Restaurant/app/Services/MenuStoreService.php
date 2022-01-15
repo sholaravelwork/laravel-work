@@ -8,25 +8,25 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Image;
 
-class MenuStoreService
+class MenuStoreService extends Controller
 {
     public function store(PostRequest $request)
     {
         $menu =  new Menu();
         $file = $request->file('img');
 
-        // $this->validate($request->file('img'), [
-        //     'file' => [
-        //         // 必須
-        //         'required',
-        //         // アップロードされたファイルであること
-        //         'file',
-        //         // 画像ファイルであること
-        //         'image',
-        //         // MIMEタイプを指定
-        //         'mimes:jpeg,png',
-        //     ]
-        // ]);
+        $this->validate($file, [
+            'file' => [
+                // 必須
+                'required',
+                // アップロードされたファイルであること
+                'file',
+                // 画像ファイルであること
+                'image',
+                // MIMEタイプを指定
+                'mimes:jpeg,png',
+            ]
+        ]);
 
         if ($request->file('img')->isValid([])) {
             //バリデーションを正常に通過した時の処理
