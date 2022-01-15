@@ -56,7 +56,7 @@
                 <p>予約完了画面</p>
             </div>
             <div align="center" class="reserve-complete">
-                <h2>予約が完了しました。</h2>
+                <h2>予約が完了しました。<br>後ほどお電話で予約確認をさせて頂きます。</h2>
                 <p><a href="{{ route('manage.index') }}">ホーム画面に戻る</a></p>
             </div>
         </section>
