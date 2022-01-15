@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\AdminiRequest;
+use App\Http\Requests\LoginRequest;
 use App\Models\Administrator;
 
 use Illuminate\Http\Request;
