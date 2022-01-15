@@ -29,7 +29,7 @@
                         {{ $menu->name }}
                         <p>ID：{{ $menu->id }}</p>
                     </td>
-                    <td><img src="{{ $menu->img }}"></td>
+                    <td><img src="{{ $menu->img }}" class="menu_img"></td>
                     <td class="td_price"> {{ $menu->price }}円</td>
                     <td> <input type="submit" value="詳細を見る"></td>
                 </tr>
