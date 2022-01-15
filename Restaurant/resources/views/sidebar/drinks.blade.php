@@ -23,7 +23,7 @@
                     <ul>
                         <li>
                             <div>
-                                <img src="{{ $menu->img }}" alt="">
+                                <img src="{{ $menu->img }}" alt="" class="img-drink">
                                 <div class="menu-des">
                                     <h2> {{ $menu->name }}</h2>
                                     <p class="menu_price">{{ $menu->price }}円(税込)</p>
