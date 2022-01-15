@@ -31,67 +31,67 @@ Route::get('/access',[PostController::class, 'sidebar_access'])
 ->name('access');
 
 Route::get('/admin',[PostController::class, 'admin'])
-->name('admin');
+->name('admin')->middleware('login');
 
 Route::get('/manage-menu',[PostController::class, 'manage_menu'])
-->name('manage.menu');
+->name('manage.menu')->middleware('login');
 
 Route::get('/menuadd',[PostController::class, 'menu_add'])
-->name('menus.add');
+->name('menus.add')->middleware('login');
 
 Route::post('/menus/store',[PostController::class, 'menu_store'])
-->name('menus.store');
+->name('menus.store')->middleware('login');
 
 Route::get('/menus/{menu}', [PostController::class, 'menus_show'])
-    ->name('menus.show');
+    ->name('menus.show')->middleware('login');
 
 Route::get('/menus/{menu}/edit', [PostController::class, 'menus_edit'])
     ->name('menus.edit')
-    ->where('menu', '[0-9]+');
+    ->where('menu', '[0-9]+')->middleware('login');
 
 Route::patch('/menus/{menu}/update', [PostController::class, 'update'])
     ->name('menus.update')
-    ->where('menu', '[0-9]+');
+    ->where('menu', '[0-9]+')->middleware('login');
 
 Route::get('/menus/{menu}/destroy', [PostController::class, 'destroy'])
     ->name('menus.destroy')
-    ->where('menu', '[0-9]+');
+    ->where('menu', '[0-9]+')->middleware('login');
 
 
 Route::get('/manage-reserve',[PostController::class, 'manage_reserve'])
-    ->name('manage.reserve');
+    ->name('manage.reserve')->middleware('login');
 
 // 予約追加画面
 Route::post('/reserve/store',[ReserveController::class, 'reserve_store'])
-    ->name('reserve.store');
+    ->name('reserve.store')->middleware('login');
 
 
-Route::get('/reserveadd',[ReserveController::class, 'reserve_add']);
+Route::get('/reserveadd',[ReserveController::class, 'reserve_add'])->middleware('login');
 
 
 Route::get('/reserves/{reservation}', [ReserveController::class, 'reserve_show'])
-    ->name('reserve.show');
+    ->name('reserve.show')->middleware('login');
 
 
 Route::get('/reserves/{reservation}/edit', [ReserveController::class, 'reserve_edit'])
     ->name('reserve.edit')
-    ->where('reserve', '[0-9]+');
+    ->where('reserve', '[0-9]+')->middleware('login');
 
 
 Route::patch('/reserves/{reservation}/update', [ReserveController::class, 'reserveupdate'])
     ->name('reserve.update')
-    ->where('reserve', '[0-9]+');
+    ->where('reserve', '[0-9]+')->middleware('login');
 
 Route::get('/reserves/{reservation}/destroy', [ReserveController::class, 'reservedestroy'])
     ->name('reserve.destroy')
-    ->where('reserve', '[0-9]+');
+    ->where('reserve', '[0-9]+')->middleware('login');
 
 Route::get('/reserveck',[PostController::class, 'reserveck'])
     ->name('reserveck');
 
 
 Route::get('/manage-administrator',[PostController::class, 'manage_administrator'])
-    ->name('manage.administrator');
+    ->name('manage.administrator')->middleware('login');
 
 
 // サインイン
@@ -126,15 +126,15 @@ Route::get('/administrator/{administrator}', [AdminController::class, 'administr
 
 Route::get('/administrator/{administrator}/edit', [AdminController::class, 'administrator_edit'])
     ->name('administrator.edit')
-    ->where('reserve', '[0-9]+');
+    ->where('reserve', '[0-9]+')->middleware('login');
 
 Route::patch('/administrator/{administrator}/update', [AdminController::class, 'administrator_update'])
     ->name('administrator.update')
-    ->where('administrator', '[0-9]+');
+    ->where('administrator', '[0-9]+')->middleware('login');
 
 Route::get('/administrator/{administrator}/destroy', [AdminController::class, 'administrator_destroy'])
     ->name('administrator.destroy')
-    ->where('administrator', '[0-9]+');
+    ->where('administrator', '[0-9]+')->middleware('login');
 
 Auth::routes();
 
@@ -143,10 +143,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/logout', [PostController::class, 'logout'])
 	->name('logout');
 
-Route::get('/upload/image',[ImageController::class, 'input']);
+// Route::get('/upload/image',[ImageController::class, 'input']);
 
-Route::post('/upload/image/upload',[ImageController::class, 'upload']);
+// Route::post('/upload/image/upload',[ImageController::class, 'upload']);
 
-Route::get('/upload/image/output',[ImageController::class, 'output']);
+// Route::get('/upload/image/output',[ImageController::class, 'output']);
 
 

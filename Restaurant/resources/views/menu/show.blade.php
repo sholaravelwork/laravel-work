@@ -26,7 +26,7 @@
                 </td>
                 <td><img src="{{ $menu->img }}" class="menu_img"></td>
                 <td class="td_price"> {{ $menu->price }}円</td>
-                <td>{!! nl2br(e($menu->expla)) !!}</td>>
+                <td>{!! nl2br(e($menu->expla)) !!}</td>
                 <td><input type="submit" value="編集する"></td>
             </tr>
         </table>
